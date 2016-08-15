@@ -41,6 +41,10 @@
 		<script src="js/new_AnimOnScroll.js"></script>
 		<script>
 
+			var url = plugin.options.url;
+			var loadBtn = document.getElementById('loadbtn');
+
+
 			var plugin = new AnimOnScroll( document.getElementById( 'ibl_grid' ), {
 				minDuration : 0.4,
 				maxDuration : 0.7,
@@ -48,10 +52,8 @@
 				url : 'https://beta.iblossom.com/embededfeed?source_name=src-brands'
 			});
 
-			/*var url = plugin.options.url;
-			var loadBtn = document.getElementById('loadbtn');
-
-			function init() {
+		
+			/*function init() {
 				makeDataRequest(plugin.options.url+'&count=60', function(){
 					setTimeout(function(){
 						iblhelper.removeClass(loadBtn.parentNode, 'start');

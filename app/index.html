@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Loading Effects for Grid Items | Demo 1</title>
+		<meta name="description" content="Loading Effects for Grid Items with CSS Animations" />
+		<meta name="keywords" content="css animation, loading effect, google plus, grid items, masonry" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		
+		<link rel="stylesheet" type="text/css" href="css/new_component.css" />
+		<script src="js/modernizr.custom.js" ></script>
+		<script src="js/htmlParser.js" async defer></script>
+		<script src="js/postscribe.js" async defer></script>
+	</head>
+	<body>
+
+		<div id="parentDiv">
+		
+			<section class="cols-4">
+				<ul class="ibl_grid effect-2" id="ibl_grid">
+					<li class="ibl_gridSizer"></li>
+				</ul>
+			</section>
+
+			<div id="ibl_paginate" class="paginate start loading" >
+				<button id="loadbtn" class="btn" data-max-page-id="0">Load More</button>	
+				<div class="load_logo">                        
+					<img class="load" src="https://beta.iblossom.com/images/app_icons/moderator_preloader.gif">                        
+					<p class="fetch_message">Fetching Social Feeds</p>                        
+					<p class="power_by">
+						<img class="powered_logo" src="https://beta.iblossom.com/images/iblossomwattermark.png"></p>                    
+				</div>
+			</div>
+				
+		</div>
+		<script src="js/helpers.js"></script>
+		<script src="js/masonry.pkgd.min.js"></script>
+		<script src="js/new_AnimOnScroll.js"></script>
+		<script>
+
+			var plugin = new AnimOnScroll( document.getElementById( 'ibl_grid' ), {
+				minDuration : 0.4,
+				maxDuration : 0.7,
+				viewportFactor : 0.5,
+				url : 'https://beta.iblossom.com/embededfeed?source_name=src-brands'
+			});
+
+			/*var url = plugin.options.url;
+			var loadBtn = document.getElementById('loadbtn');
+
+			function init() {
+				makeDataRequest(plugin.options.url+'&count=60', function(){
+					setTimeout(function(){
+						iblhelper.removeClass(loadBtn.parentNode, 'start');
+						iblhelper.removeClass(loadBtn.parentNode, 'loading');
+					}, 500);
+				});
+			}
+
+			init();
+			
+			function makeDataRequest(url, callback){
+
+				iblhelper.getCORS(url, function(request){
+			    	var response = request.currentTarget.response || request.target.responseText;
+
+			    	var res = JSON.parse(response);
+			    	var feeds = res.feeds;
+				   plugin._createTemplate(feeds);
+					
+				   if(res.pagination != 0) {
+						loadBtn.setAttribute('data-max-page-id', res.pagination);
+					} else {
+						iblhelper.addClass(loadBtn.parentNode, 'no_more_feed');
+						loadBtn.setAttribute('disabled','disabled');
+						loadBtn.setAttribute('data-max-page-id', 0);
+						loadBtn.innerHTML = 'No More Content';
+					}
+
+					typeof callback == "function" && callback();
+
+				});
+
+			}
+			
+			function iblPaginate(pageId, count, category) {
+
+				var loadUrl = url +'&count='+count+'&min_id='+pageId;
+
+				if(typeof category !== 'undefined' && typeof category !== '') {
+					loadUrl = loadUrl+'&category='+ category;
+				}
+				
+				if(pageId != 0 || pageId != '') {
+					iblhelper.addClass(loadBtn.parentNode, 'loading');
+					makeDataRequest(loadUrl);
+				} 	
+			}	 
+	
+			function ScrollEvent(){
+
+			 	setTimeout(function(){
+
+			 		window.onscroll = function() {
+
+			 			if(!iblhelper.hasClass(loadBtn.parentNode, 'start') && !iblhelper.hasClass(loadBtn.parentNode, 'loading') && !iblhelper.hasClass(loadBtn.parentNode, 'no_more_feed') && iblhelper.checkVisible(loadBtn) ) {
+
+			 				var pageId = loadBtn.getAttribute('data-max-page-id');
+							iblPaginate(pageId, 60, 'All')
+
+						}
+			 		}
+
+			 	}, 1000);
+		 	}
+
+		 	ScrollEvent();*/
+			
+		</script>
+	</body>
+</html>
